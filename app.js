@@ -4,11 +4,14 @@ const IP = require('ip');
 
 app.get('/', (req, res) => {
     const ipAddress = IP.address();
-    console.log(IP.isPrivate(ipAddress))
-    console.log(IP.isPublic(ipAddress))
-    console.log(IP.isV4Format(ipAddress))
-    console.log(IP.isV6Format(ipAddress))
-    res.send(ipAddress)
+    const ipObject = {
+      ipAddress: IP.address(),
+      isPrivate: IP.isPrivate(ipAddress),
+      isPublic: IP.isPublic(ipAddress),
+      isV4Format: IP.isV4Format(ipAddress),
+      isV6Format: IP.isV6Format(ipAddress)
+    }
+    res.send(ipObject)
 })
 const port = process.env.PORT || 3001;
 
