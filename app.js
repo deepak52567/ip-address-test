@@ -6,12 +6,13 @@ var expressUseragent = require('express-useragent');
 app.use(expressUseragent.express());
 
 app.get('/', (req, res) => {
-    const ipObject = {
-      ipAddress: IP.address(),
-      reqIPAddress: requestIp.getClientIp(req),
-      userAgent: req.useragent || 'test'
-    }
-    res.send(ipObject)
+  res.set('Access-Control-Allow-Origin', '*');
+  const ipObject = {
+    ipAddress: IP.address(),
+    reqIPAddress: requestIp.getClientIp(req),
+    userAgent: req.useragent || 'test'
+  }
+  res.send(ipObject)
 })
 const port = process.env.PORT || 3001;
 
