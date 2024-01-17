@@ -6,7 +6,6 @@ var expressUseragent = require('express-useragent');
 app.use(expressUseragent.express());
 
 app.get('/', (req, res) => {
-  console.log(req.useragent);
     const ipObject = {
       ipAddress: IP.address(),
       reqIPAddress: requestIp.getClientIp(req),
