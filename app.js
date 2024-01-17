@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const IP = require('ip');
 var requestIp = require('request-ip');
+var useragent = require('express-useragent');
+app.use(useragent.express());
 
 app.get('/', (req, res) => {
     const ipObject = {
       ipAddress: IP.address(),
-      reqIpAddress: requestIp.getClientIp(req)
+      reqIpAddress: requestIp.getClientIp(req),
+      userAgent: req.userAgent
       // isPrivate: IP.isPrivate(ipAddress),
       // isPublic: IP.isPublic(ipAddress),
       // isV4Format: IP.isV4Format(ipAddress),
