@@ -10,10 +10,6 @@ app.get('/', (req, res) => {
       ipAddress: IP.address(),
       reqIpAddress: requestIp.getClientIp(req),
       userAgent: req.userAgent
-      // isPrivate: IP.isPrivate(ipAddress),
-      // isPublic: IP.isPublic(ipAddress),
-      // isV4Format: IP.isV4Format(ipAddress),
-      // isV6Format: IP.isV6Format(ipAddress)
     }
     res.send(ipObject)
 })
