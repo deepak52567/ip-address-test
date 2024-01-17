@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const IP = require('ip');
 var requestIp = require('request-ip');
 var expressUseragent = require('express-useragent');
 app.use(expressUseragent.express());
@@ -8,9 +7,8 @@ app.use(expressUseragent.express());
 app.get('/', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   const ipObject = {
-    ipAddress: IP.address(),
     reqIPAddress: requestIp.getClientIp(req),
-    userAgent: req.useragent || 'test'
+    userAgent: req.useragent
   }
   res.send(ipObject)
 })
