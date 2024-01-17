@@ -8,7 +8,7 @@ app.use(useragent.express());
 app.get('/', (req, res) => {
     const ipObject = {
       ipAddress: IP.address(),
-      reqIpAddress: requestIp.getClientIp(req),
+      reqIPAddress: requestIp.getClientIp(req),
       userAgent: req.userAgent
     }
     res.send(ipObject)
