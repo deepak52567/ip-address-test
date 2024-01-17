@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     const ipObject = {
       ipAddress: IP.address(),
       reqIPAddress: requestIp.getClientIp(req),
-      userAgent: req.userAgent
+      userAgent: req.useragent
     }
     res.send(ipObject)
 })
